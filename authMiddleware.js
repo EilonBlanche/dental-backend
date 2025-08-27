@@ -1,0 +1,15 @@
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = 'your_secret_key_here';
+
+const verifyToken = (req, res, next) => {
+  const token = req.headers['authorization'];
+  if (!token) return res.status(403).json({ message: 'No token provided' });
+
+  jwt.verify(token.split(' ')[1], JWT_SECRET, (err, decoded) => {
+    if (err) return res.status(401).json({ message: 'Unauthorized' });
+    req.userId = decoded.id;
+    next();
+  });
+};
+
+module.exports = verifyToken;
