@@ -23,9 +23,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      # Step 3: Build and push Docker image with GitHub run number as tag
-      - name: Build and push Docker image with run number tag
+      # Step 3: Build and push Docker image
+      - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
+          context: .
           push: true
-          tags: eilon0723/dental-backend:${{ github.run_number }}
+          # Push both the versioned tag and latest tag
+          tags: |
+            eilon0723/dental-backend:${{ github.run_number }}
+            eilon0723/dental-backend:latest
