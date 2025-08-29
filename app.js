@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const sequelize = require('./database/db');
-
 const authRoutes = require('./routes/auth');
 const appointmentRoutes = require('./routes/appointments');
 const dentistRoutes = require('./routes/dentists');
@@ -14,7 +13,26 @@ const PORT = 5000;
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.use(cors());
+// Allow local dev and production frontend domains
+const allowedOrigins = [
+  'http://localhost:3000',          // local frontend
+  'https://dentalbackend.ddns.net'      // production domain
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (curl, Postman, mobile apps)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'), false);
+    }
+  },
+  credentials: true // allow cookies or auth headers
+}));
+
 app.use(bodyParser.json());
 
 app.use('/api', authRoutes);
