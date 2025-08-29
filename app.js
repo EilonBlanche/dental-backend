@@ -15,8 +15,8 @@ app.get('/', (req, res) => res.send('Hello World!'));
 
 // Allow local dev and production frontend domains
 const allowedOrigins = [
-  'http://localhost:3000',          // local frontend
-  'https://dentalbackend.ddns.net'      // production domain
+  'http://localhost:3000',
+  'https://genuine-piroshki-e21886.netlify.app/'
 ];
 
 app.use(cors({
