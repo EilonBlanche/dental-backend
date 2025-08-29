@@ -1,6 +1,7 @@
 services:
-  backend:
+  app:
     build: .
+    image: eilon0723/dental-backend
     container_name: dental-backend
     ports:
       - "${PORT}:5000"
