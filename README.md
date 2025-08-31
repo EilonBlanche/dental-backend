@@ -1,7 +1,3 @@
-# Dental Office Backend
-
-This is the **backend API** for **Dental Office**, an appointment booking system designed to manage users, appointments, and dentists. Built with **Node.js**, **Express**, and **PostgreSQL**, it serves as the server-side foundation for the frontend application.
-
 # Table of Contents
 
 - [Dental Office Backend](#dental-office-backend)
@@ -20,6 +16,11 @@ This is the **backend API** for **Dental Office**, an appointment booking system
     - [Appointments](#appointments)
     - [Dentists](#dentists)
 - [Dental Office Backend Database](#dental-office-backend-database)
+
+  
+# Dental Office Backend
+
+This is the **backend API** for **Dental Office**, an appointment booking system designed to manage users, appointments, and dentists. Built with **Node.js**, **Express**, and **PostgreSQL**, it serves as the server-side foundation for the frontend application.
 
 ## Features
 
