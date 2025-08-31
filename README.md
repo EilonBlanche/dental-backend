@@ -80,9 +80,15 @@ The API will run on http://localhost:5000.
 ## Docker Setup
 
 1. Build the Docker image:  
+   ```bash
    docker build -t dental-backend .
-
-2. Add action in github repo to create a new image for every push.
+   ```
+2. Up services
+   ```bash
+   docker compose up -d
+   ```
+3. Add action in github repo to create a new image for every push.
+   - check **deploy.yml**
 
 The API will be accessible at http://localhost:5000.
 
