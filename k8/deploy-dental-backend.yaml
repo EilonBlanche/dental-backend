@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dental-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dental-backend
+  template:
+    metadata:
+      labels:
+        app: dental-backend
+    spec:
+      containers:
+      - name: dental-backend
+        image: eilon0723/dental-backend:latest
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - secretRef:
+            name: db-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dental-backend-service
+spec:
+  type: NodePort
+  selector:
+    app: dental-backend
+  ports:
+  - port: 80
+    targetPort: 5000
+    nodePort: 30080
