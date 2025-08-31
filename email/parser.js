@@ -23,7 +23,7 @@ function parseUserTemplate(appointment) {
     const templatePath = path.join(__dirname, 'templates', 'user-template.html');
     const template = fs.readFileSync(templatePath, 'utf-8');
     return template
-        .replace('{{userName}}',formatDate(appointment.name))
+        .replace('{{userName}}',formatDate(appointment.user))
         .replace('{{dentistName}}', appointment.dentist)
         .replace('{{appointmentDate}}', formatDate(appointment.date))
         .replace('{{appointmentTime}}', formatTimeRange(appointment.timeFrom, appointment.timeTo));
