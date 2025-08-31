@@ -30,7 +30,7 @@ Download this [file](https://drive.google.com/file/d/18jSe61EJXPABPthi_A3j-IEBWn
 - Create, view, update, and delete appointments (Admin and Users)
 - Manage dentist profiles and schedules (Admin only)
 - Role-based access control
-- Daily automated email reminders for scheduled appointments (using CRON)
+- Daily automated email reminders for scheduled appointments scheduled during 9 AM (using CRON)
 - Docker-ready for easy deployment
 - Deployed on **EC2** with **k3s (Lightweight Kubernetes)** and **Amazon RDS (PostgreSQL)**
 - Accessible at: https://dentalbackend.ddns.net/
