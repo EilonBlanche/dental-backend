@@ -1,0 +1,125 @@
+# Dental Office Backend
+
+This is the **backend API** for **Dental Office**, an appointment booking system designed to manage users, appointments, and dentists. Built with **Node.js**, **Express**, and **PostgreSQL**, it serves as the server-side foundation for the frontend application.
+
+## Features
+
+- User registration and authentication with Admin/User roles
+- Create, view, update, and delete appointments
+- Manage dentist profiles and schedules (Admin only)
+- Role-based access control
+- Email notifications for appointment confirmations
+- Daily scheduled tasks (via CRON)
+- Docker-ready for easy deployment
+- Deployed on **EC2** with **k3s (Lightweight Kubernetes)** and **Amazon RDS (PostgreSQL)**
+- Accessible at: https://dentalbackend.ddns.net/
+- Unit tests included
+
+## Technologies Used
+
+- Backend Framework: Node.js, Express
+- Database: PostgreSQL (Amazon RDS)
+- Authentication: JWT (JSON Web Tokens)
+- Email Service: Nodemailer
+- Environment Variables: dotenv
+- CRON Jobs: node-cron
+- Containerization: Docker
+- Orchestration: k3s (Lightweight Kubernetes on EC2)
+- Testing: Jest / Supertest (for unit and integration tests)
+
+## Environment Variables
+
+Create a `.env` file in the project root with the following placeholder values:
+
+```bash
+DB_NAME=your_database_name  
+DB_USER=your_database_user  
+DB_PASSWORD=your_database_password  
+DB_HOST=your_host_endpoint  
+DB_PORT=5432  
+JWT_SECRET=your_jwt_secret  
+PORT=5000  
+EMAIL_SERVICE_EMAIL=your_email_address  
+EMAIL_SERVICE_PASSWORD=your_email_password  
+CRON_SCHEDULE=your_cron_schedule_for_email_notification
+```
+
+> Replace the placeholders with your actual credentials.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/EilonBlanche/dental-backend.git
+   ```
+
+3. Navigate to the project directory:
+   ```bash
+   cd dental-backend
+   ```
+
+5. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+7. Start the server:
+   ```bash
+   npm start
+   ```
+
+The API will run on http://localhost:5000.
+
+## Running Unit Tests
+
+- Run all unit tests using:  
+  npm run test
+
+- Test reports and coverage (if configured) will be displayed in the terminal.
+
+## Docker Setup
+
+1. Build the Docker image:  
+   docker build -t dental-backend .
+
+2. Add action in github repo to create a new image for every push.
+
+The API will be accessible at http://localhost:5000.
+
+## k3s Deployment on EC2
+
+1. Created a Kubernetes secret for environment variables:
+
+2. Apply the Kubernetes deployments
+
+4. Ensure EC2 instance can connect to the RDS instance securely via VPC and security groups.
+
+## API Endpoints
+
+### Authentication
+
+- POST /api/auth/register – Register a new user  
+- POST /api/auth/login – Login an existing user  
+
+### Users
+
+- GET /api/users – Get all users (Admin only)  
+- GET /api/users/:id – Get a user by ID  
+- PUT /api/users/:id – Update a user by ID  
+- DELETE /api/users/:id – Delete a user by ID  
+
+### Appointments
+
+- GET /api/appointments – Get all appointments  
+- GET /api/appointments/:id – Get appointment by ID  
+- POST /api/appointments – Create new appointment  
+- PUT /api/appointments/:id – Update appointment by ID  
+- DELETE /api/appointments/:id – Delete appointment by ID  
+
+### Dentists
+
+- GET /api/dentists – Get all dentists  
+- GET /api/dentists/:id – Get dentist by ID  
+- POST /api/dentists – Add new dentist  
+- PUT /api/dentists/:id – Update dentist by ID  
+- DELETE /api/dentists/:id – Delete dentist by ID
