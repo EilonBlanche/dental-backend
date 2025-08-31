@@ -33,9 +33,10 @@ async function getAppointmentsFrom9AMTodayTo9AMTomorrow() {
 
 cron.schedule('* * * * *', async () => {
     try {
+        console.log("I AM HERE");
         const appointments = await getAppointmentsFrom9AMTodayTo9AMTomorrow();
         appointments.forEach(appointment => {
-            console.log("APPOINTMENT");
+            console.log("APPOINTMENT", appointment);
         });
     } catch (err) {
         console.error('Error fetching appointments:', err);
