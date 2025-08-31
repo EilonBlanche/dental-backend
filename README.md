@@ -2,6 +2,25 @@
 
 This is the **backend API** for **Dental Office**, an appointment booking system designed to manage users, appointments, and dentists. Built with **Node.js**, **Express**, and **PostgreSQL**, it serves as the server-side foundation for the frontend application.
 
+# Table of Contents
+
+- [Dental Office Backend](#dental-office-backend)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Create Database](#create-database)
+  - [Run Migration](#run-migration)
+  - [Running Unit Tests](#running-unit-tests)
+  - [Docker Setup](#docker-setup)
+  - [K3s Deployment on EC2](#k3s-deployment-on-ec2)
+  - [API Endpoints](#api-endpoints)
+    - [Authentication](#authentication)
+    - [Users](#users)
+    - [Appointments](#appointments)
+    - [Dentists](#dentists)
+- [Dental Office Backend Database](#dental-office-backend-database)
+
 ## Features
 
 - User registration and authentication with Admin/User roles
