@@ -22,7 +22,6 @@ Download this [file](https://drive.google.com/file/d/18jSe61EJXPABPthi_A3j-IEBWn
     - [Users](#users)
     - [Appointments](#appointments)
     - [Dentists](#dentists)
-- [Dental Office Backend Database](#dental-office-backend-database)
 
   
 ## Features
@@ -36,12 +35,6 @@ Download this [file](https://drive.google.com/file/d/18jSe61EJXPABPthi_A3j-IEBWn
 - Deployed on **EC2** with **k3s (Lightweight Kubernetes)** and **Amazon RDS (PostgreSQL)**
 - Accessible at: https://dentalbackend.ddns.net/
 - Unit tests included
-
-# Dental Office Backend Database
-
-This repository contains the **database schema and migration scripts** for the **Dental Office** appointment booking system. The backend is built with **Node.js**, **Express**, and **PostgreSQL**, and this database powers users, appointments, and dentists.
-
----
 
 ## Technologies Used
 
