@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Dentist = require('../database/models/dentists');
 
-// Get all dentists
 router.get('/', async (req, res) => {
   try {
     const dentists = await Dentist.findAll();
@@ -13,7 +12,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a new dentist
 router.post('/', async (req, res) => {
   const { name, email, specialization, availableStart, availableEnd } = req.body;
 
@@ -35,7 +33,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Update dentist
 router.put('/:id', async (req, res) => {
   const { name, email, specialization, availableStart, availableEnd } = req.body;
 
@@ -60,8 +57,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-
-// Delete dentist
 router.delete('/:id', async (req, res) => {
   try {
     const dentist = await Dentist.findByPk(req.params.id);

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Status = require('../database/models/status'); // Sequelize model
 
-// Get all statuses
 router.get('/', async (req, res) => {
   try {
     const statuses = await Status.findAll();
@@ -13,7 +12,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get a single status by ID
 router.get('/:id', async (req, res) => {
   try {
     const status = await Status.findByPk(req.params.id);

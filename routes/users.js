@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require('../database/models/users');
 const bcrypt = require('bcryptjs');
 
-// Get all users
 router.get('/', async (req, res) => {
   try {
     const users = await User.findAll({
@@ -16,7 +15,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get a single user by ID
 router.get('/:id', async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id, {
@@ -30,7 +28,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Create a new user
 router.post('/', async (req, res) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {
@@ -51,7 +48,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Update user
 router.put('/:id', async (req, res) => {
   const { name, email, isAdmin } = req.body;
   try {
@@ -73,7 +69,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete user
 router.delete('/:id', async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id);
