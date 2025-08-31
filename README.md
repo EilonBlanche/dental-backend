@@ -33,6 +33,15 @@ This repository contains the **database schema and migration scripts** for the *
 - Orchestration: k3s (Lightweight Kubernetes on EC2)
 - Testing: Jest / Supertest (for unit and integration tests)
 
+
+## Create Database
+
+Before running migrations, you must **create the database** manually (PostgreSQL does not allow `CREATE DATABASE` inside transactions):
+
+```bash
+psql -U postgres -d postgres -c "CREATE DATABASE dental_db;"
+```
+
 ## Environment Variables
 
 Create a `.env` file in the project root with the following placeholder values:
@@ -52,13 +61,6 @@ CRON_SCHEDULE=your_cron_schedule_for_email_notification
 
 > Replace the placeholders with your actual credentials.
 
-## Create Database
-
-Before running migrations, you must **create the database** manually (PostgreSQL does not allow `CREATE DATABASE` inside transactions):
-
-```bash
-psql -U postgres -d postgres -c "CREATE DATABASE dental_db;"
-```
 
 ## Run Migration
 
