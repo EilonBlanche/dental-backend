@@ -87,8 +87,7 @@ The API will run on http://localhost:5000.
    ```bash
    docker compose up -d
    ```
-3. Add action in github repo to create a new image for every push.
-   - check **deploy.yml**
+3. Add action in github repo to create a new image for every push in **.github/workflows/deploy.yml**.
 
 The API will be accessible at http://localhost:5000.
 
