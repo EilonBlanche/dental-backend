@@ -22,6 +22,8 @@
 
 This is the **backend API** for **Dental Office**, an appointment booking system designed to manage users, appointments, and dentists. Built with **Node.js**, **Express**, and **PostgreSQL**, it serves as the server-side foundation for the frontend application.
 
+Download this file for a walkthrough : [File](https://drive.google.com/file/d/18jSe61EJXPABPthi_A3j-IEBWnmX6SbF/view?usp=drive_link)
+
 ## Features
 
 - User registration and authentication with Admin/User roles
