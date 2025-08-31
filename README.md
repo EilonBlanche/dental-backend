@@ -28,11 +28,10 @@ Download this [file](https://drive.google.com/file/d/18jSe61EJXPABPthi_A3j-IEBWn
 ## Features
 
 - User registration and authentication with Admin/User roles
-- Create, view, update, and delete appointments
+- Create, view, update, and delete appointments (Admin and Users)
 - Manage dentist profiles and schedules (Admin only)
 - Role-based access control
-- Email notifications for appointment confirmations
-- Daily scheduled tasks (via CRON)
+- Daily automated email reminders for scheduled appointments (using CRON)
 - Docker-ready for easy deployment
 - Deployed on **EC2** with **k3s (Lightweight Kubernetes)** and **Amazon RDS (PostgreSQL)**
 - Accessible at: https://dentalbackend.ddns.net/
@@ -51,7 +50,7 @@ This repository contains the **database schema and migration scripts** for the *
 - Authentication: JWT (JSON Web Tokens)
 - Email Service: Nodemailer
 - Environment Variables: dotenv
-- CRON Jobs: node-cron
+- CRON Jobs: node-cron (for Email notifications)
 - Containerization: Docker
 - Orchestration: k3s (Lightweight Kubernetes on EC2)
 - Testing: Jest / Supertest (for unit and integration tests)
