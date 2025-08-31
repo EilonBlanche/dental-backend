@@ -8,6 +8,8 @@ const dentistRoutes = require('./routes/dentists');
 const userRoutes = require('./routes/users');
 const statusRoutes = require('./routes/status');
 
+require('./cron/cron');
+
 const app = express();
 const PORT = 5000;
 
