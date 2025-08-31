@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
       where: { user_id: req.userId },
       include: [
         { model: User, attributes: ['id', 'name', 'email'] },
-        { model: Dentist, attributes: ['id', 'name'] },
+        { model: Dentist, attributes: ['id', 'name', 'specialization', 'email'] },
         { model: Status, attributes: ['id', 'description'] }, 
       ],
     });
