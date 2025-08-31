@@ -90,7 +90,7 @@ The API will be accessible at http://localhost:5000.
 
 1. Created a Kubernetes secret for environment variables:
 
-2. Apply the Kubernetes deployments
+2. Apply the Kubernetes deployments.
 
 4. Ensure EC2 instance can connect to the RDS instance securely via VPC and security groups.
 
