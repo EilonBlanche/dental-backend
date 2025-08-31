@@ -15,6 +15,12 @@ This is the **backend API** for **Dental Office**, an appointment booking system
 - Accessible at: https://dentalbackend.ddns.net/
 - Unit tests included
 
+# Dental Office Backend Database
+
+This repository contains the **database schema and migration scripts** for the **Dental Office** appointment booking system. The backend is built with **Node.js**, **Express**, and **PostgreSQL**, and this database powers users, appointments, and dentists.
+
+---
+
 ## Technologies Used
 
 - Backend Framework: Node.js, Express
@@ -46,6 +52,20 @@ CRON_SCHEDULE=your_cron_schedule_for_email_notification
 
 > Replace the placeholders with your actual credentials.
 
+## Create Database
+
+Before running migrations, you must **create the database** manually (PostgreSQL does not allow `CREATE DATABASE` inside transactions):
+
+```bash
+psql -U postgres -d postgres -c "CREATE DATABASE dental_db;"
+```
+
+## Run Migration
+
+```bash
+npm run migrate
+```
+
 ## Installation
 
 1. Clone the repository:
@@ -72,9 +92,11 @@ The API will run on http://localhost:5000.
 
 ## Running Unit Tests
 
-- Run all unit tests using:  
+- Run all unit tests using:
+  ```bash
   npm run test
-
+  ```
+  
 - Test reports and coverage (if configured) will be displayed in the terminal.
 
 ## Docker Setup
@@ -91,7 +113,7 @@ The API will run on http://localhost:5000.
 
 The API will be accessible at http://localhost:5000.
 
-## k3s Deployment on EC2
+## K3s Deployment on EC2
 
 1. Created a Kubernetes secret for environment variables:
 
@@ -108,7 +130,7 @@ The API will be accessible at http://localhost:5000.
 
 ### Users
 
-- GET /api/users – Get all users (Admin only)  
+- GET /api/users – Get all users
 - GET /api/users/:id – Get a user by ID  
 - PUT /api/users/:id – Update a user by ID  
 - DELETE /api/users/:id – Delete a user by ID  
