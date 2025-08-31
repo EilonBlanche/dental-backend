@@ -1,15 +1,13 @@
 const transporter = require('./transport');
-
-async function sendEmail({ to, subject, text, html }) {
+const parser = require('./parser');
+async function sendEmail(emailParams, type) {
     try {
         const mailOptions = {
             from: "Dental Office",
-            to,
-            subject,
-            text,
-            html
+            to : emailParams.email,
+            subject : "Upcoming Appointment Reminder",
+            html : (type === 'user') ? parser.parseUserTemplate(emailParams) : parser.parseDentistTemplate(emailParams)
         };
-
         const info = await transporter.sendMail(mailOptions);
         console.log('Email sent:', info.response);
     } catch (error) {

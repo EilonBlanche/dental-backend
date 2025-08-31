@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Reminder</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 40px auto; background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #2c3e50; }
+        .content { margin-top: 20px; line-height: 1.6; }
+        .content p { margin: 10px 0; font-size: 16px; }
+        .label { font-weight: bold; }
+        .highlight { color: #2980b9; font-weight: bold; }
+        .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Appointment Reminder</h2>
+        <div class="content">
+            <p>Hello <span class="highlight">{{userName}}</span>,</p>
+            <p>This is a friendly reminder for your upcoming appointment with your dentist.</p>
+
+            <p><span class="label">Dentist:</span> {{dentistName}}</p>
+            <p><span class="label">Date:</span> {{appointmentDate}}</p>
+            <p><span class="label">Time:</span> {{appointmentTime}}</p>
+
+            <p>Please arrive on time. If you need to reschedule, contact the clinic as soon as possible.</p>
+        </div>
+        <div class="footer">
+            &copy; 2025 Dental Clinic. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

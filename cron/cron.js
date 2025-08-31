@@ -1,5 +1,6 @@
 const cron = require('node-cron');
 const { Op } = require('sequelize');
+const emailSender = require('../email/sender')
 const Appointment = require('../database/models/appointments');
 const User = require('../database/models/users');
 const Dentist = require('../database/models/dentists');
@@ -27,18 +28,21 @@ async function getAppointmentsFrom9AMTodayTo9AMTomorrow() {
         ],
         order: [['date', 'ASC'], ['timeFrom', 'ASC']],
     });
-
     return appointments;
 }
 
-cron.schedule('* * * * *', async () => {
+cron.schedule(process.env.CRON_SCHEDULE, async () => {
     try {
-        console.log("I AM HERE");
         const appointments = await getAppointmentsFrom9AMTodayTo9AMTomorrow();
-        appointments.forEach(appointment => {
-            console.log("APPOINTMENT", appointment);
-        });
+        console.log("APPOINTMENTS", appointments.length);
+        for (const appointment of appointments) {
+            let emailUserParams = { email: appointment.user.email, user : appointment.user.name, dentist : appointment.dentist.name, date : appointment.date, timeFrom : appointment.timeFrom, timeTo : appointment.timeTo };
+            await emailSender(emailUserParams, "user");
+            let emailDentistParams = { email: appointment.dentist.email, dentist : appointment.dentist.name, user : appointment.user.name, date : appointment.date, timeFrom : appointment.timeFrom, timeTo : appointment.timeTo }
+            await emailSender(emailDentistParams, "dentist");
+        }
     } catch (err) {
         console.error('Error fetching appointments:', err);
     }
 });
+
