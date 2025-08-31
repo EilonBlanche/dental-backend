@@ -11,6 +11,7 @@ Download this [file](https://drive.google.com/file/d/18jSe61EJXPABPthi_A3j-IEBWn
   - [Technologies Used](#technologies-used)
   - [Installation](#installation)
   - [Environment Variables](#environment-variables)
+  - [Schema Design](#schema-design)
   - [Create Database](#create-database)
   - [Run Migration](#run-migration)
   - [Running Unit Tests](#running-unit-tests)
@@ -55,6 +56,9 @@ This repository contains the **database schema and migration scripts** for the *
 - Orchestration: k3s (Lightweight Kubernetes on EC2)
 - Testing: Jest / Supertest (for unit and integration tests)
 
+
+## Schema Design
+<img width="1068" height="800" alt="image" src="https://github.com/user-attachments/assets/519cf142-3790-4bc8-9cc2-307f83bfce64" />
 
 ## Create Database
 
