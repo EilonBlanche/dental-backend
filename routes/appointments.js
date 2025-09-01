@@ -18,7 +18,6 @@ router.get('/', async (req, res) => {
         { model: Status, attributes: ['id', 'description'] }, 
       ],
     });
-    console.log(appointments);
     res.json(appointments);
   } catch (err) {
     console.error(err);
@@ -73,7 +72,6 @@ router.delete('/:id', async (req, res) => {
 
 router.post('/dentist', async (req, res) => {
   try {
-    console.log(req.body)
     const { dentistId, date } = req.body;
 
     const appointments = await Appointment.findAll({

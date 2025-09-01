@@ -34,7 +34,6 @@ async function getAppointmentsFrom9AMTodayTo9AMTomorrow() {
 cron.schedule(process.env.CRON_SCHEDULE, async () => {
     try {
         const appointments = await getAppointmentsFrom9AMTodayTo9AMTomorrow();
-        console.log("APPOINTMENTS", appointments.length);
         for (const appointment of appointments) {
             let emailUserParams = { email: appointment.user.email, user : appointment.user.name, dentist : appointment.dentist.name, date : appointment.date, timeFrom : appointment.timeFrom, timeTo : appointment.timeTo };
             await emailSender(emailUserParams, "user");

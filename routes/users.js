@@ -53,15 +53,12 @@ router.put('/:id', async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id);
     if (!user) return res.status(404).json({ message: 'User not found' });
-
-    console.log(isAdmin);
     if (name) user.name = name;
     if (email) user.email = email;
     user.isAdmin = isAdmin;
     await user.save();
 
     const userData = user.toJSON();
-    console.log(userData);
     res.json(userData);
   } catch (err) {
     console.error(err);
