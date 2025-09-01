@@ -20,7 +20,6 @@ function formatDate(dateStr) {
 }
 
 function parseUserTemplate(appointment) {
-    console.log("APPT", appointment)
     const templatePath = path.join(__dirname, 'templates', 'user-template.html');
     const template = fs.readFileSync(templatePath, 'utf-8');
     return template
