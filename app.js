@@ -7,6 +7,7 @@ const appointmentRoutes = require('./routes/appointments');
 const dentistRoutes = require('./routes/dentists');
 const userRoutes = require('./routes/users');
 const statusRoutes = require('./routes/status');
+const jwt = require('jsonwebtoken');
 
 require('./cron/cron');
 
@@ -38,6 +39,21 @@ app.use(cors({
 app.use(bodyParser.json());
 
 app.use('/api', authRoutes);
+
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // Expect "Bearer TOKEN"
+  if (!token) return res.status(401).json({ message: 'Unauthorized Access' });
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ message: 'Unauthorized Access' });
+    req.user = user; // decoded payload
+    next();
+  });
+}
+
+
+app.use(authenticateToken);
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/dentists', dentistRoutes);
 app.use('/api/users', userRoutes);
